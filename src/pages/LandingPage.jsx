@@ -15,8 +15,8 @@ const LandingPage = () => {
         {menu && <div className="menu absolute flex flex-col gap-6 right-0 top-0 left-0 z-50 bottom-0 py-4 px-6 bg-zinc-800 text-slate-200">
                 <div className="close self-end" onClick={menuClose}><IoClose color="#f5f5f5" /></div>
                 <div className="popup-menu flex flex-col h-20 text-2xl gap-4 justify-between">
-                <div className="about font-rest py-2 px-2 border-t border-b border-slate-200">About us</div>
-                <div className="search font-rest py-2 px-2 border-t border-b border-slate-200">Search</div>
+                <div className="about font-rest py-2 px-2 border-slate-200">About us</div>
+                <div className="search font-rest py-2 px-2 border-slate-200">Search</div>
                 </div>
             </div>}
         <div className="shoe-rack absolute mr-6 right-0 top-32 z-10 h-[600px]"><img src="../../assets/cut-rack.png" alt="shoe rack" className="object-cover w-full h-full" /></div>
