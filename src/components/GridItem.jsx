@@ -7,7 +7,7 @@ const GridItem = ({image,price,stars,name}) => {
     
     return ( 
         <>
-        <div className="flex-item flex flex-col gap-1 basis-[100%] md:basis-[30%]">
+        <div className="flex-item flex flex-col gap-1 cursor-pointer basis-[100%] md:basis-[30%]">
             <div className="flex-img rounded-lg overflow-hidden h-full"><img src={image} className=" object-cover h-full" alt="shoe" /></div>
             <div className="flex-details flex justify-between">
                 <h2 className="text-lg lg:text-xl font-semibold">{name.substring(0,15)}</h2>
@@ -19,7 +19,7 @@ const GridItem = ({image,price,stars,name}) => {
                 <img key = {index} className="w-5 lg:w-8" src="../../assets/stars.png" alt="shoe pic"></img>
                 )}
                 </div>
-                <div className="add-cart border border-[#F1AA39] rounded-2xl hover:bg-[#F1AA39] cursor-pointer px-2">Add to cart</div>
+                <div className="add-cart border border-[#F1AA39] rounded-2xl hover:bg-[#F1AA39] cursor-pointer px-2 z-40">Add to cart</div>
             </div>
         </div>
         </>

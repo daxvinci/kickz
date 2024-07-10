@@ -11,7 +11,7 @@ const Navbar = ({setmenu}) => {
                     <div onClick={menu} className="menu md:hidden ml-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="M21.6 19.2H2.40002M21.6 12H2.40002M21.6 4.79999H2.40002" stroke="black"
-                     stroke-width="2" stroke-linecap="round"/>
+                     strokeWidth="2" strokeLinecap="round"/>
                     </svg></div>
                     <button className="brand md:ml-4 lg:ml-8 cursor-pointer text-2xl lg:text-4xl active:translate-y-2">Kickz</button>
                     <div className="other-nav hidden md:flex gap-2 flex-1 lg:w-[70%] items-center justify-between">

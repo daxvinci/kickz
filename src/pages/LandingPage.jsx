@@ -2,13 +2,19 @@ import { useState } from "react";
 import GridItem from "../components/GridItem";
 import Navbar from "../components/Navbar";
 import { IoClose } from "react-icons/io5";
+import database from "../database"
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
     const [menu,setMenu] = useState(false);
-
     const menuClose = ()=>{
         setMenu(false)
     }
+
+const discovered = database[0].discover
+const train = database[1].trainers
+const menandWomen = database[2].menWomen
+console.log(discovered)
     return (
         <>
         <div className="bg-[#1E1E1E] min-h-screen w-full p-4 md:p-8 lg:pl-16 lg:pt-6 lg:pr-6 lg:pb-6 relative">
@@ -46,23 +52,40 @@ const LandingPage = () => {
             </div>
         </div>
         <section className=" bg-[#FAEEE0] min-h-screen pl-8 lg:pl-12 md:pl-10 pt-6 pr-8 lg:pr-12 md:pr-10 pb-6 font-rest">
-            <h1 className="discover font-semibold mb-5 text-3xl">Discover</h1>
+            <h1 className="discover font-semibold mt-4 mb-5 text-3xl">Discover</h1>
             <div className="flex-collection flex flex-wrap justify-between gap-4">
-                < GridItem image="../../assets/shoe1.png" name='NB 574' price='259.87' stars={3.4} />
+            {discovered.map((data)=>(
+               <Link to= {`product/:${data}`}> < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} /></Link>
+            ))}
+            </div>
+            <h1 className="discover font-semibold mt-8 mb-5 text-3xl">Trainers</h1>
+            <div className="flex-collection flex flex-wrap justify-between gap-4">
+            {train.map((data)=>(
+                < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} />
+            ))}
+            </div>
+            <h1 className="discover font-semibold mt-8 mb-5 text-3xl">Men/Women</h1>
+            <div className="flex-collection flex flex-wrap justify-between gap-4">
+            {menandWomen.map((data)=>(
+                < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} />
+            ))}
+            </div>
+
+                {/* < GridItem image="../../assets/shoe1.png" name='NB 574' price='259.87' stars={3} />
                 < GridItem image="../../assets/shoe2.png" name='Adidas Hype' price='215.23' stars={4} />
                 < GridItem image="../../assets/shoe3.png" name='Yeezy Boast' price='179.09' stars={2} />
                 < GridItem image="../../assets/shoe4.png" name='Jordan Spizike' price='160.00' stars={4} />
-                < GridItem image="../../assets/shoe5.png" name='Adidas Oze..' price='124.88' stars={3} />
-                < GridItem image="../../assets/shoe6.png" name='YKZ 700 V3' price='210.00' stars={2} />
-                < GridItem image="../../assets/shoe7.png" name='U Bounce DNA' price='128.00' stars={3} />
+                < GridItem image="../../assets/shoe5.png" name='Adidas Ozeegwo' price='124.88' stars={3} />
+                < GridItem image="../../assets/shoe6.png" name='YKZ 700 V3' price='210.00' stars={2} /> */}
+                {/* < GridItem image="../../assets/shoe7.png" name='U Bounce DNA' price='128.00' stars={3} />
                 < GridItem image="../../assets/shoe8.png" name='Revolution' price='199.87' stars={4} />
                 < GridItem image="../../assets/shoe9.png" name='Newbalance S' price='218.09' stars={3} />
                 < GridItem image="../../assets/shoe10.png" name='Vasace chain..' price='218.00' stars={3} />
                 < GridItem image="../../assets/shoe11.png" name='LV Skate' price='982.33' stars={4} />
-                < GridItem image="../../assets/shoe12.png" name='Fendi' price='178.09' stars={2} />
-            </div>
-            <div className="arrows flex justify-center gap-2 mt-6">
-                <div className="nav flex justify-between gap-16 md:gap-1 md:w-[8%]">
+                < GridItem image="../../assets/shoe12.png" name='Fendi' price='178.09' stars={2} /> */}
+            
+            <div className="arrows flex justify-center gap-2 mt-16">
+                <div className="nav flex justify-between gap-16 md:gap-8 md:w-[16%]">
                     <div className="left hover:cursor-pointer "><img src="../../assets/left.png" alt="left arrow"/></div>
                     <div className="right hover:cursor-pointer "><img src="../../assets/right.png" alt="right arrow"/> </div>
                 </div>
