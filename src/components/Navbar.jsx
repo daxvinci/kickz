@@ -13,15 +13,15 @@ const Navbar = ({setmenu}) => {
                     <path d="M21.6 19.2H2.40002M21.6 12H2.40002M21.6 4.79999H2.40002" stroke="black"
                      stroke-width="2" stroke-linecap="round"/>
                     </svg></div>
-                    <div className="brand md:ml-4 lg:ml-8 cursor-pointer text-2xl lg:text-4xl active:translate-y-2">Kickz</div>
+                    <button className="brand md:ml-4 lg:ml-8 cursor-pointer text-2xl lg:text-4xl active:translate-y-2">Kickz</button>
                     <div className="other-nav hidden md:flex gap-2 flex-1 lg:w-[70%] items-center justify-between">
                         <form className="w-[45%]" role="search">
                             <input autoComplete="off" id="search" type="search" className="form-control w-full rounded-lg p-1 text-lg outline-none shadow-lg" placeholder="Search..." aria-label="Search"></input>
                         </form>
-                        <div className="about-us ml-6 hover:cursor-pointer active:translate-y-2">About us</div>
+                        <button className="about-us ml-6 hover:cursor-pointer active:translate-y-2">About us</button>
                         <div className="sign-in flex w-[35%] gap-2 justify-end">
-                            <div className="log-in hover:cursor-pointer bg-[#2F2A26] rounded-3xl active:translate-y-2 cursor-pointer py-2 text-center w-[40%] text-slate-100">Login</div>
-                            <div className="create-account hover:cursor-pointer border rounded-3xl active:translate-y-2 cursor-pointer py-2 border-[#121713] text-center w-[40%]">Register</div>
+                            <button className="log-in hover:cursor-pointer bg-[#2F2A26] rounded-3xl active:translate-y-2 cursor-pointer py-2 text-center w-[40%] text-slate-100">Login</button>
+                            <button className="create-account hover:cursor-pointer border rounded-3xl active:translate-y-2 cursor-pointer py-2 border-[#121713] text-center w-[40%]">Register</button>
                         </div>
                     </div>
                     <div className="cart md:hidden lg:mr-5 hover:cursor-pointer active:translate-y-2"><IoCartOutline size={30} /></div>

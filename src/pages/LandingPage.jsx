@@ -30,7 +30,7 @@ const LandingPage = () => {
                     <p className="head-description font-rest text-slate-200 text-xl">The Just Don x Air Jordan Legacy 312 NRG collection is 
                         a collaboration between luxury street-wear designer Don C and Jordan Brand.
                     </p>
-                    <div className="collection-btn font-playful hover:cursor-pointer active:translate-y-2 bg-[#F1AA39] text-2xl shadow-sm shadow-[#F1AA39] rounded-full my-5 lg:my-10 py-4 text-center w-[200px]">Collections</div>
+                    <button className="collection-btn font-playful hover:cursor-pointer active:translate-y-2 bg-[#F1AA39] text-2xl shadow-sm shadow-[#F1AA39] rounded-full my-5 lg:my-10 py-4 text-center w-[200px]">Collections</button>
                 </div>
                 <div className="shoe w-[36%] z-20 hidden md:block"><img src="../../assets/shoe.png" alt="shoe" className="w-full" /></div>
             </div>
