@@ -48,7 +48,7 @@ const Product = () => {
             <div className="shopping-cart w-[50%]">
                 <h1 className="text-2xl">Shopping Card</h1>
                 <div className="sorryfortable w-full">
-                <thead>
+                <thead className="my-3 p-5 bg-red-300">
                 <tr>
                 <th></th>
                 <th>Product</th>
@@ -56,15 +56,15 @@ const Product = () => {
                 <th>Quantity</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
+                <tbody >
+                <tr className="my-3 p-5 bg-slate-800">
                 <td><button>delete</button></td>
                 <td>shoe</td>
                 <td>$215.00</td>
                 <td>1 pair</td>
                 </tr>
             </tbody>
-            <tfoot>
+            <tfoot className="my-3 p-5 bg-orange-400">
             <tr>
                 <td></td>
                 <td><div>subtotal</div> <div>total</div> <div>1% vat excluded</div> </td>
