@@ -1,44 +1,46 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { IoCartOutline } from "react-icons/io5";
+import database from "../database";
 
 
 const Product = () => {
     const params = useParams()
     const user = params.userId
-    console.log(user)
 
     return ( 
         <>
-        <section className="product-wrapper flex flex-col bg-[#F1AA39] pt-10 pb-40 justify-center items-center">
+        <section className="product-wrapper font-rest flex flex-col bg-[#F1AA39] pt-10 pb-40 justify-center items-center">
             <div className="fake-seperator w-[80%] flex flex-col items-center h-screen">
             <h1 className="text-4xl">Shopping process</h1>
             <div className="product h-full w-full rounded-3xl p-6 mt-10 bg-[#FAEEE0]">
                 <div className="inner-wraper h-full flex flex-col justify-between">
                 < Navbar />
-                <div className="prodcut-shown h-[80%] flex justify-between border border-slate-900">
-                    <div className="img-wrapper w-[55%]">
-                        <div className="img-container"><img src={user.shoe} alt="shoe" /></div>
-                        <div className="little-images">
-                            <div className="small-img"><img src={user.shoe} alt="small shoe" /></div>
-                            <div className="small-img"><img src={user.shoe} alt="small shoe" /></div>
-                            <div className="small-img"><img src={user.shoe} alt="small shoe" /></div>
+                {database.filter((data) =>data.id === Number(user)).map((product) => 
+                 <div className="prodcut-shown h-[80%] flex justify-between">
+                    <div className="img-wrapper flex items-center gap-3 flex-col w-[55%]">
+                        <div className="img-container rounded-2xl w-[60%]"><img className="max-w-full max-h-full" src={product.shoe} alt="shoe" /></div>
+                        <div className="little-images flex gap-4">
+                            <div className="small-img h-[33%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
+                            <div className="small-img h-[33%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
+                            <div className="small-img h-[33%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
                         </div>
-                        </div>
+                    </div>
                     <div className="product-details flex flex-col justify-between h-full py-6 w-[40%]">
-                        <div className="details">Nike</div>
-                        <div className="details">Air Jordan 4 Retro Oxidation Gren</div>
-                        <div className="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ea impedit odio reprehenderit, obcaecati voluptatum at accusamus ut iusto alias quia. Eos corrupti repellat tempora, explicabo non consequatur exercitationem illo!</div>
-                        <div className="details bg-black"><hr /></div>
+                        <div className="details text-3xl text-[#F1AA39]">{product.brand}</div>
+                        <div className="details text-2xl">{product.name}</div>
+                        <div className="details w-[75%] text-lg">{product.description}</div>
+                        <div className="details w-full"><hr className="border border-black" ></hr></div>
                         <div className="details flex gap-4">
-                            <span className="price text-[#F1AA39] text-2xl">$215.00</span> <span className="vat text-lg">vat + shipping fee included</span>
+                            <span className="price text-[#F1AA39] text-2xl">{product.price}</span> <span className="vat text-black opacity-50 text-lg">vat + shipping fee included</span>
                         </div>
                         <div className="details flex self-center gap-6">
-                            <button className="addCart px-6 py-2 text-xl font-semibold bg-[#F1AA39] rounded-3xl shadow-sm text-zinc-950">Add to cart</button>
+                            <button className="addCart px-6 py-2 text-xl font-semibold bg-[#F1AA39] rounded-3xl shadow-sm text-zinc-950 hover:cursor-pointer active:translate-y-2">Add to cart</button>
                             <IoCartOutline color="#F1AA39" size={50} />
                         </div>
                     </div>
-                </div>
+                </div>)}
+                
                 </div>
             </div>
 
@@ -48,7 +50,8 @@ const Product = () => {
             <div className="shopping-cart w-[50%]">
                 <h1 className="text-2xl">Shopping Card</h1>
                 <div className="sorryfortable w-full">
-                <thead className="my-3 p-5 bg-red-300">
+                <table className="w-[80%]">
+                <thead className=" bg-red-300">
                 <tr>
                 <th></th>
                 <th>Product</th>
@@ -57,7 +60,7 @@ const Product = () => {
                 </tr>
                 </thead>
                 <tbody >
-                <tr className="my-3 p-5 bg-slate-800">
+                <tr className=" bg-slate-800">
                 <td><button>delete</button></td>
                 <td>shoe</td>
                 <td>$215.00</td>
@@ -73,6 +76,7 @@ const Product = () => {
                 <td></td>
             </tr>
             </tfoot>
+            </table>
             <button>check out</button>
                 </div>
             </div>

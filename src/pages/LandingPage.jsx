@@ -11,13 +11,9 @@ const LandingPage = () => {
         setMenu(false)
     }
 
-const discovered = database[0].discover
-const train = database[1].trainers
-const menandWomen = database[2].menWomen
-console.log(discovered)
     return (
         <>
-        <div className="bg-[#1E1E1E] min-h-screen w-full p-4 md:p-8 lg:pl-16 lg:pt-6 lg:pr-6 lg:pb-6 relative">
+        <div className="bg-[#1E1E1E] min-h-max w-full p-4 md:p-8 lg:pl-16 lg:pt-6 lg:pr-6 lg:pb-6 relative">
         {menu && <div className="menu absolute flex flex-col gap-6 right-0 top-0 left-0 z-50 bottom-0 py-4 px-6 bg-zinc-800 text-slate-200">
                 <div className="close self-end" onClick={menuClose}><IoClose color="#f5f5f5" /></div>
                 <div className="popup-menu flex flex-col h-20 text-2xl gap-4 justify-between">
@@ -54,20 +50,20 @@ console.log(discovered)
         <section className=" bg-[#FAEEE0] min-h-screen pl-8 lg:pl-12 md:pl-10 pt-6 pr-8 lg:pr-12 md:pr-10 pb-6 font-rest">
             <h1 className="discover font-semibold mt-4 mb-5 text-3xl">Discover</h1>
             <div className="flex-collection flex flex-wrap justify-between gap-4">
-            {discovered.map((data)=>(
-               <Link to= {`product/:${data}`}> < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} /></Link>
+            {database.filter((data)=>data.category === 'discover').map((data)=>(
+               <Link to= {`product/${data.id}`}> < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} /></Link>
             ))}
             </div>
             <h1 className="discover font-semibold mt-8 mb-5 text-3xl">Trainers</h1>
             <div className="flex-collection flex flex-wrap justify-between gap-4">
-            {train.map((data)=>(
-                < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} />
+            {database.filter((data)=>data.category === 'trainers').map((data)=>(
+                <Link to= {`product/${data.id}`}>< GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} /></Link>
             ))}
             </div>
             <h1 className="discover font-semibold mt-8 mb-5 text-3xl">Men/Women</h1>
             <div className="flex-collection flex flex-wrap justify-between gap-4">
-            {menandWomen.map((data)=>(
-                < GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} />
+            {database.filter((data)=>data.category === 'gender').map((data)=>(
+                <Link to= {`product/${data.id}`}>< GridItem key={data.id} image={data.shoe} name={data.name} price={data.price} stars={data.stars} /></Link>
             ))}
             </div>
 
