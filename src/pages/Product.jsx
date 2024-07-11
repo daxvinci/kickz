@@ -25,7 +25,7 @@ const Product = ({setItems,items }) => {
             const existingItem = prev.find(item => item.id === product.id);
         if (existingItem) {
             return prev.map(item => 
-                item.id === product.id ? { ...item, quantity: item.quantity + 1, price: (item.quantity + 1) * item.price } 
+                item.id === product.id ? { ...item, quantity: item.quantity + 1, price: item.quantity * item.price } 
                 : item
             );
         } else {
@@ -82,7 +82,7 @@ const Product = ({setItems,items }) => {
                         <div className="details flex gap-4 items-end">
                             <span className="price text-[#F1AA39] text-md lg:text-xl">{product.price}</span> <span className="vat text-black opacity-50 text-md lg:text-xl">vat + shipping fee included</span>
                         </div>
-                        <div className="details flex self-center gap-6">
+                        <div className="details flex mt-3 self-center gap-6">
                             <button onClick={()=>checkout(product)}  className="addCart px-8 py-2 text-md font-semibold bg-[#F1AA39] rounded-3xl shadow-gray-400 shadow-lg text-zinc-950 hover:cursor-pointer active:translate-y-2">Add to cart</button>
                             <IoCartOutline onClick={nav} className="hover:cursor-pointer active:translate-y-2" color="#F1AA39" size={40} />
                         </div>
