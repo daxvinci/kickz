@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 
 const Product = ({setItems,items }) => {
+    const [expanse,setExpanse] =useState(false)
     useEffect(()=>{
         setItems(items)
     },[setItems,items])
@@ -38,6 +39,12 @@ const Product = ({setItems,items }) => {
         console.log(product)
     }
 
+    const expand =(text)=>{
+        setExpanse(!expanse)
+        const desc = document.getElementById('description')
+        desc.innerHTML = expanse ? text.description : text.description.substring(0,280)
+    }
+
     const nav =()=>{
         // setsomething
         navigate('/checkout');
@@ -60,20 +67,20 @@ const Product = ({setItems,items }) => {
                 {database.filter((data) =>data.id === Number(user)).map((product) => 
                  <div key={product.id} className="prodcut-shown h-[90%] flex justify-between">
                     <div className="img-wrapper flex items-center gap-3 flex-col w-[55%]">
-                        <div className="img-container rounded-2xl w-[40%]"><img className="max-w-full max-h-full" src={product.shoe} alt="shoe" /></div>
+                        <div className="img-container rounded-2xl w-[80%] lg:w-[40%]"><img className="max-w-full max-h-full" src={product.shoe} alt="shoe" /></div>
                         <div className="little-images flex justify-center gap-4">
-                            <div className="small-img w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
-                            <div className="small-img w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
-                            <div className="small-img w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
+                            <div className="small-img w-[20%] lg:w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
+                            <div className="small-img w-[20%] lg:w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
+                            <div className="small-img w-[20%] lg:w-[10%]"><img className="max-w-full max-h-full" src={product.shoe} alt="small shoe" /></div>
                         </div>
                     </div>
-                    <div className="product-details flex flex-col justify-between h-full pb-6 w-[40%]">
-                        <div className="details text-2xl text-[#F1AA39]">{product.brand}</div>
-                        <div className="details text-xl">{product.name}</div>
-                        <div className="details w-[75%] text-md">{product.description}</div>
+                    <div className="product-details gap-2 flex flex-col justify-between w-[60%] h-full pb-6 lg:w-[40%]">
+                        <div className="details text-md lg:text-2xl text-[#F1AA39]">{product.brand}</div>
+                        <div className="details text-md lg:text-xl">{product.name}</div>
+                        <div onClick={()=>expand(product)} id="description" className="details lg:w-[75%] lg:text-md">{product.description.length === 280? product.description.substring(0,280) + '...':product.description}</div>
                         <div className="details w-full"><hr className="border border-black" ></hr></div>
                         <div className="details flex gap-4 items-end">
-                            <span className="price text-[#F1AA39] text-xl">{product.price}</span> <span className="vat text-black opacity-50 text-xl">vat + shipping fee included</span>
+                            <span className="price text-[#F1AA39] text-md lg:text-xl">{product.price}</span> <span className="vat text-black opacity-50 text-md lg:text-xl">vat + shipping fee included</span>
                         </div>
                         <div className="details flex self-center gap-6">
                             <button onClick={()=>checkout(product)}  className="addCart px-8 py-2 text-md font-semibold bg-[#F1AA39] rounded-3xl shadow-gray-400 shadow-lg text-zinc-950 hover:cursor-pointer active:translate-y-2">Add to cart</button>
