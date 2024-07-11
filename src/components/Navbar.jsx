@@ -1,6 +1,13 @@
 import { IoCartOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({setmenu}) => {
+const Navbar = ({setmenu,items}) => {
+    
+    const navigate = useNavigate()
+    
+    const nav = ()=>{
+        navigate('/checkout')
+    }
     const menu = ()=>{
         setmenu(true)
     }
@@ -26,7 +33,7 @@ const Navbar = ({setmenu}) => {
                     </div>
                     <div className="cart md:hidden lg:mr-5 hover:cursor-pointer active:translate-y-2"><IoCartOutline size={30} /></div>
                 </nav>
-                <div className="cart hidden md:block lg:mr-5 hover:cursor-pointer active:translate-y-2"><IoCartOutline color="#F1AA39" size={40} /></div>
+                <div onClick={()=> nav()} className="cart hidden md:block relative lg:mr-5 hover:cursor-pointer active:translate-y-2"><IoCartOutline color="#F1AA39" size={40} />{items.length !== 0 && <span className="absolute right-[-5px] top-[-5px] w-4 h-4 rounded-full text-center bg-amber-600 text-black text-[12px]">{items.length}</span>}</div>
             </div>
         </>
      );

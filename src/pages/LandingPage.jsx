@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import database from "../database"
 import { Link } from "react-router-dom";
 
-const LandingPage = () => {
+const LandingPage = ({items}) => {
     const [menu,setMenu] = useState(false);
     const menuClose = ()=>{
         setMenu(false)
@@ -22,7 +22,7 @@ const LandingPage = () => {
                 </div>
             </div>}
         <div className="shoe-rack absolute mr-6 right-0 top-32 z-10 h-[600px]"><img src="../../assets/cut-rack.png" alt="shoe rack" className="object-cover w-full h-full" /></div>
-            < Navbar setmenu = {setMenu} />
+            < Navbar setmenu = {setMenu} items={items} />
             <div className="introduction flex flex-col md:flex-row justify-between md:w-[98%] mt-26 mb-16">
                 <div className="head-text flex justify-between gap-2  w- flex-col md:w-[64%]">
                     <h1 className="header font-rest text-[35px] md:text-5xl lg:text-7xl text-slate-200">Shop The Best Collection of <br /> <span className="vogue text-[#F1AA39]">"In Vogue" </span> 
